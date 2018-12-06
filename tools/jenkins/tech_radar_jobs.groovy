@@ -41,6 +41,10 @@ job("service/architecture/tech-radar-build-and-deploy") {
         }
     }
 
+    triggers {
+      githubPush()
+    }
+
     steps {
       shell("""
         git tag -a -f -m "Release \${DEPLOY_VERSION}" \${DEPLOY_VERSION}
