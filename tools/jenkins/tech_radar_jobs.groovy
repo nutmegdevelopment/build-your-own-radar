@@ -9,6 +9,8 @@ job("service/architecture/tech-radar-build-and-deploy") {
         preBuildCleanup()
     }
 
+    label('k8s-docker')
+
     parameters {
         stringParam('BRANCH', 'master', 'Git branch')
         stringParam('DEPLOY_VERSION','','Deployment version')
