@@ -47,7 +47,7 @@ job("service/architecture/tech-radar-build-and-deploy") {
 
         echo "Build the docker image(s)."
         docker build -f Dockerfile -t \${DOCKER_REGISTRY}/\${DOCKER_REPO}:\${DEPLOY_VERSION} .
-        docker tag -f \${DOCKER_REGISTRY}/\${DOCKER_REPO}:\${DEPLOY_VERSION} \${DOCKER_REGISTRY}/\${DOCKER_REPO}:latest
+        docker tag \${DOCKER_REGISTRY}/\${DOCKER_REPO}:\${DEPLOY_VERSION} \${DOCKER_REGISTRY}/\${DOCKER_REPO}:latest
 
         echo "Push the docker images."
         docker push \${DOCKER_REGISTRY}/\${DOCKER_REPO}:\${DEPLOY_VERSION}
