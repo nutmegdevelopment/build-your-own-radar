@@ -12,8 +12,8 @@ job("service/architecture/tech-radar-build-and-deploy") {
     parameters {
         stringParam('BRANCH', 'master', 'Git branch')
         stringParam('DEPLOY_VERSION','','Deployment version')
-        stringParam('DEPLOY_ENVIRONMENT','dev','Deployment environment')
-        stringParam('MARATHON_URL','${MARATHON_DEV}','Marathon URL')
+        stringParam('DEPLOY_ENVIRONMENT','prod','Deployment environment')
+        stringParam('MARATHON_URL','${MARATHON_PROD}','Marathon URL')
         stringParam('APP_ID','','Application ID')
         stringParam('INSTANCES','1','Application intances')
         stringParam('PROPERTIES','','Service properties')
@@ -53,7 +53,7 @@ job("service/architecture/tech-radar-build-and-deploy") {
 
         marathon-config-generator -config-file=tools/marathon/marathon.yml \
           -var=APP_NAME=\${APP_NAME} \
-          -var=VERSION=\${DEPLOY_VERSION} | marathon-client -d -m \${MARATHON_PROD} -u marathon -p NutmegMarathon -f -
+          -var=VERSION=\${DEPLOY_VERSION} | marathon-client -d -m \${MARATHON_URL} -u marathon -p NutmegMarathon -f -
         """)
     }
 }
