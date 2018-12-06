@@ -16,7 +16,7 @@ container:
         value: "APP_BUILD={{VERSION}}"
 labels:
   HAPROXY_GROUP: internal
-  HAPROXY_0_VHOST: tech-radar.prod.nutmeg.co.uk
+  HAPROXY_0_VHOST: tech-radar.dev.nutmeg.co.uk
 healthChecks:
   -
     protocol: HTTP
