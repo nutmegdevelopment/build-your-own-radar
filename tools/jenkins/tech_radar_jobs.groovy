@@ -17,6 +17,9 @@ job("service/architecture/tech-radar-build-and-deploy") {
         stringParam('APP_ID','','Application ID')
         stringParam('INSTANCES','1','Application intances')
         stringParam('PROPERTIES','','Service properties')
+        stringParam('APP_NAME', 'tech-radar', 'Application name')
+        stringParam('DOCKER_REPO', 'build-your-own-radar', 'Docker repo name')
+        stringParam('DOCKER_REGISTRY', 'registry.nutmeg.co.uk:8443', 'Docker registry address')
     }
 
     wrappers {
@@ -38,17 +41,15 @@ job("service/architecture/tech-radar-build-and-deploy") {
 
     steps {
       shell("""
-        export APP_NAME=tech-radar
-
         git tag -a -f -m "Release \${DEPLOY_VERSION}" \${DEPLOY_VERSION}
 
         echo "Build the docker image(s)."
-        docker build -f Dockerfile -t ${registry}/${repo}:\${DEPLOY_VERSION} .
-        docker tag -f ${registry}/${repo}:\${DEPLOY_VERSION} ${registry}/${repo}:latest
+        docker build -f Dockerfile -t \${DOCKER_REGISTRY}/\${DOCKER_REPO}:\${DEPLOY_VERSION} .
+        docker tag -f \${DOCKER_REGISTRY}/\${DOCKER_REPO}:\${DEPLOY_VERSION} \${DOCKER_REGISTRY}/\${DOCKER_REPO}:latest
 
         echo "Push the docker images."
-        docker push ${registry}/${repo}:\${DEPLOY_VERSION}
-        docker push ${registry}/${repo}:latest
+        docker push \${DOCKER_REGISTRY}/\${DOCKER_REPO}:\${DEPLOY_VERSION}
+        docker push \${DOCKER_REGISTRY}/\${DOCKER_REPO}:latest
 
         marathon-config-generator -config-file=tools/marathon/marathon.yml \
           -var=APP_NAME=\${APP_NAME} \
