@@ -14,8 +14,8 @@ job("service/architecture/tech-radar-build-and-deploy") {
     parameters {
         stringParam('BRANCH', 'master', 'Git branch')
         stringParam('DEPLOY_VERSION','','Deployment version')
-        stringParam('DEPLOY_ENVIRONMENT','prod','Deployment environment')
-        stringParam('MARATHON_URL','${MARATHON_PROD}','Marathon URL')
+        stringParam('DEPLOY_ENVIRONMENT','dev','Deployment environment')
+        stringParam('MARATHON_URL','${MARATHON_DEV}','Marathon URL')
         stringParam('APP_ID','','Application ID')
         stringParam('INSTANCES','1','Application intances')
         stringParam('PROPERTIES','','Service properties')
