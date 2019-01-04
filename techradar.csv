@@ -14,6 +14,7 @@ Kafka,Trial,Tools,FALSE,,Open Source stream-processing platform
 Kafka Connect,Trial,Tools,FALSE,,"Framework for connecting Kafka with external datasources like databases, NoSQL, file system. Specialised Connectors supports different technologies as Source and/or Sink"
 Hashicorp Vault,Trial,Tools,FALSE,,"Opens Source, cross-plaftorm secret management and authentication tool, by HashiCorp"
 Spring Batch,Assess,"Language, Framework & Libraries",FALSE,,"Batch processing framework in Spring ecosystem. It provides features for job management, chunking/partitioning, but not scheduling "
+OpenJDK 8, Assess,Platforms,FALSE,,"Open Source Java Runtime, compatible with Oracle JDK 8 but still maintained"
 OpenJDK 11,Assess,Platforms,FALSE,,"New LTS Java runtime version, providing support for new language features"
 Strategic DDD,Assess,Techniques,FALSE,,"Collection of techniques and concepts from Domain Driven Design (e.g. Context mapping, Ubiquitous Language) for tackling domain complexity in software development. Some of these concepts, like Bounded Contexts, are recognised as best practices to define microservice boundaries"
 Kotlin,Hold,"Language, Framework & Libraries",FALSE,new,"Kotlin provides more advanced FP features and terser code than modern Java, still maintaining full interoperability with Java"
